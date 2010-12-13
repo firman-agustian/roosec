@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_hatimonline_code_roosec_domain_SystemUser" items="${systemusers}" z="S6LVDNbo0Y1Shweeu08iwjfOrys=">
+        <table:table data="${systemusers}" id="l_com_hatimonline_code_roosec_domain_SystemUser" path="/admin/systemusers" z="sVGBGchl4sxD/vd4Tse7tQmbxmg=">
+            <table:column id="c_com_hatimonline_code_roosec_domain_SystemUser_username" property="username" z="gQ33my6Qn0/E4Ogb8VwpY/xGA3o="/>
+        </table:table>
+    </page:list>
+</div>

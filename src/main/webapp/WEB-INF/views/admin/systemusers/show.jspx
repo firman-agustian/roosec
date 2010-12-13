@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_hatimonline_code_roosec_domain_SystemUser" object="${systemuser}" path="/admin/systemusers" z="F9lVj5cvp3hqionPaxLgx78LKKY=">
+        <field:display field="username" id="s_com_hatimonline_code_roosec_domain_SystemUser_username" object="${systemuser}" z="bE8Fhwa6or1GXZ4WAoWOmnTPj7w="/>
+    </page:show>
+</div>
