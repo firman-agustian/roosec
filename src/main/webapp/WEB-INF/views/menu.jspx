@@ -6,6 +6,7 @@
         <menu:category id="c_systemuser" z="VUyOQ1qm2564dCbm9lJylDiISxw=">
             <menu:item id="i_systemuser_new" messageCode="global_menu_new" url="/admin/systemusers?form" z="dkCA23Hab8BsjRFYFN0KdToTI5w="/>
         <menu:item id="i_systemuser_list" messageCode="global_menu_list" url="/admin/systemusers?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="9Mt+Gm1oiq4deE5I7tCCE4MXwKs="/>
+        <menu:item id="fi_systemuser_username" messageCode="global_menu_find" url="/admin/systemusers?find=ByUsername&amp;form" z="zqFdBmNVg4L7pwOwklpQ1ByL1xo="/>
         </menu:category>
     </menu:menu>
 </div>

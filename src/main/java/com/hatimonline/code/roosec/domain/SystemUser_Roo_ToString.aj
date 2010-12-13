@@ -11,7 +11,13 @@ privileged aspect SystemUser_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
-        sb.append("Username: ").append(getUsername());
+        sb.append("Authorities: ").append(getAuthorities() == null ? "null" : getAuthorities().size()).append(", ");
+        sb.append("Password: ").append(getPassword()).append(", ");
+        sb.append("Username: ").append(getUsername()).append(", ");
+        sb.append("AccountNonExpired: ").append(isAccountNonExpired()).append(", ");
+        sb.append("AccountNonLocked: ").append(isAccountNonLocked()).append(", ");
+        sb.append("CredentialsNonExpired: ").append(isCredentialsNonExpired()).append(", ");
+        sb.append("Enabled: ").append(isEnabled());
         return sb.toString();
     }
     

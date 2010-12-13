@@ -97,6 +97,17 @@ privileged aspect SystemUserController_Roo_Controller {
         return "redirect:/admin/systemusers?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @RequestMapping(params = { "find=ByUsername", "form" }, method = RequestMethod.GET)
+    public String SystemUserController.findSystemUsersByUsernameForm(Model model) {
+        return "admin/systemusers/findSystemUsersByUsername";
+    }
+    
+    @RequestMapping(params = "find=ByUsername", method = RequestMethod.GET)
+    public String SystemUserController.findSystemUsersByUsername(@RequestParam("username") String username, Model model) {
+        model.addAttribute("systemusers", SystemUser.findSystemUsersByUsername(username).getResultList());
+        return "admin/systemusers/list";
+    }
+    
     @ModelAttribute("systemusers")
     public Collection<SystemUser> SystemUserController.populateSystemUsers() {
         return SystemUser.findAllSystemUsers();
@@ -105,7 +116,7 @@ privileged aspect SystemUserController_Roo_Controller {
     Converter<SystemUser, String> SystemUserController.getSystemUserConverter() {
         return new Converter<SystemUser, String>() {
             public String convert(SystemUser systemUser) {
-                return new StringBuilder().append(systemUser.getTimeCreated()).append(" ").append(systemUser.getTimeLastModified()).append(" ").append(systemUser.getUsername()).toString();
+                return new StringBuilder().append(systemUser.getTimeCreated()).append(" ").append(systemUser.getTimeLastModified()).append(" ").append(systemUser.getPassword()).toString();
             }
         };
     }

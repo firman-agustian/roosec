@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="ByUsername" id="ff_com_hatimonline_code_roosec_domain_SystemUser" path="/admin/systemusers" z="2BW7hV3yDGA0GfzNEBGaYVxl500=">
+        <field:input disableFormBinding="true" field="username" id="f_com_hatimonline_code_roosec_domain_SystemUser_username" max="30" min="5" required="true" z="f+IdNP69NSBxjdOJ7fI1U78sg7U="/>
+    </form:find>
+</div>

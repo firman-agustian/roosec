@@ -18,6 +18,7 @@ privileged aspect SystemUserDataOnDemand_Roo_DataOnDemand {
     
     public SystemUser SystemUserDataOnDemand.getNewTransientSystemUser(int index) {
         com.hatimonline.code.roosec.domain.SystemUser obj = new com.hatimonline.code.roosec.domain.SystemUser();
+        obj.setPassword("password_" + index);
         obj.setTimeCreated(new java.util.Date(new java.util.Date().getTime() - 10000000L));
         obj.setTimeLastModified(new java.util.Date(new java.util.Date().getTime() - 10000000L));
         obj.setUserWhoCreated(null);

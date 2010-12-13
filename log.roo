@@ -11,3 +11,8 @@ field reference --fieldName userWhoCreated --type ~.domain.SystemUser --cardinal
 field date --fieldName timeCreated --type java.util.Date --persistenceType JPA_TIMESTAMP --class ~.domain.BaseEntity --past --timeFormat SHORT 
 field reference --fieldName userWhoLastModified --type ~.domain.SystemUser --cardinality MANY_TO_ONE --class ~.domain.BaseEntity
 field date --fieldName timeLastModified --type java.util.Date --persistenceType JPA_TIMESTAMP --class ~.domain.BaseEntity --past --timeFormat SHORT 
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-13 09:18:30
+security setup
+field string --fieldName password --class ~.domain.SystemUser
+finder list --class ~.domain.SystemUser
+finder add --finderName findSystemUsersByUsername --class ~.domain.SystemUser

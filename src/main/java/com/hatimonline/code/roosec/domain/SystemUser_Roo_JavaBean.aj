@@ -7,12 +7,12 @@ import java.lang.String;
 
 privileged aspect SystemUser_Roo_JavaBean {
     
-    public String SystemUser.getUsername() {
-        return this.username;
-    }
-    
     public void SystemUser.setUsername(String username) {
         this.username = username;
+    }
+    
+    public void SystemUser.setPassword(String password) {
+        this.password = password;
     }
     
 }

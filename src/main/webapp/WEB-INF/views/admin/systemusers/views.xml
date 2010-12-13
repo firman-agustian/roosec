@@ -13,4 +13,7 @@
 <definition extends="default" name="admin/systemusers/update">
         <put-attribute name="body" value="/WEB-INF/views/admin/systemusers/update.jspx"/>
     </definition>
+<definition extends="default" name="admin/systemusers/findSystemUsersByUsername">
+        <put-attribute name="body" value="/WEB-INF/views/admin/systemusers/findSystemUsersByUsername.jspx"/>
+    </definition>
 </tiles-definitions>
