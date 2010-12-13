@@ -9,7 +9,7 @@ import javax.persistence.Column;
 import javax.validation.constraints.Size;
 
 @RooJavaBean
-@RooToString
+@RooToString(excludeFields={"userWhoCreated","timeCreated" ,"userWhoLastModified","timeLastModified", })
 @RooEntity
 public class SystemUser extends BaseEntity {
 

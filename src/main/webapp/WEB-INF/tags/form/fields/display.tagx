@@ -11,6 +11,9 @@
   <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
   <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
 
+  <jsp:directive.attribute name="subfield" type="java.lang.String" required="false" description="a subfield" />
+  <jsp:directive.attribute name="url" type="java.lang.String" required="false" description="makes URL of the entity" />
+  
   <c:if test="${empty render or render}">
     <c:if test="${not empty object and empty label}">
       <spring:message code="label_${fn:toLowerCase(fn:substringAfter(id,'_'))}" var="label" />
@@ -41,7 +44,21 @@
             </spring:escapeBody>
           </c:when>
           <c:otherwise>
-            <spring:eval expression="object[field]" />
+            	 <c:choose>
+            	 	<c:when test="${empty subfield and empty url}">
+                   		<spring:eval expression="object[field]" />
+                   	</c:when>
+                   	<c:when test="${empty subfield and not empty url}">
+                   		<a href="${url}"><spring:eval expression="object[field]" /></a>
+                   	</c:when>
+            	 
+          			<c:when test="${not empty subfield and empty url}">
+                   		<spring:eval expression="object[field][subfield]" />
+                   	</c:when>
+                   	<c:when test="${not empty subfield and not empty url}">
+                   		<a href="${url}"><spring:eval expression="object[field][subfield]" /></a>
+                   	</c:when>
+                 </c:choose>
           </c:otherwise>
         </c:choose>
       </div>

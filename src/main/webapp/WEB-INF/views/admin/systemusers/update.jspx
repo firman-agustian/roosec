@@ -3,5 +3,9 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_hatimonline_code_roosec_domain_SystemUser" modelAttribute="systemUser" path="/admin/systemusers" z="spiOuC+lkcbgGvieo1EVM70Bm/c=">
         <field:input field="username" id="c_com_hatimonline_code_roosec_domain_SystemUser_username" max="30" min="5" required="true" z="xd+m5Hmd3mFZEIXr3qkOB4S7hZ0="/>
+    <field:select field="userWhoCreated" subfield="username" id="c_com_hatimonline_code_roosec_domain_SystemUser_userWhoCreated" itemValue="id" items="${systemusers}" path="/systemusers" z="JCm9zNBtnvBqRWN4W7+Tbk7VGZQ="/>
+    <field:datetime dateTimePattern="${systemUser_timecreated_date_format}" field="timeCreated" id="c_com_hatimonline_code_roosec_domain_SystemUser_timeCreated" past="true" z="T5mwIlftISAEQR/AKVtPCm6zrBA="/>
+    <field:select field="userWhoLastModified" subfield="username" id="c_com_hatimonline_code_roosec_domain_SystemUser_userWhoLastModified" itemValue="id" items="${systemusers}" path="/systemusers" z="n6gokvLXb3/hK1F/yaHiJAfJz3Q="/>
+    <field:datetime dateTimePattern="${systemUser_timelastmodified_date_format}" field="timeLastModified" id="c_com_hatimonline_code_roosec_domain_SystemUser_timeLastModified" past="true" z="LITUgUvayiz3339RdNmZp28UAfc="/>
     </form:update>
 </div>

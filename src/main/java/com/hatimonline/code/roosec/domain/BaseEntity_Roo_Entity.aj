@@ -9,9 +9,6 @@ import java.lang.Long;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
@@ -28,22 +25,9 @@ privileged aspect BaseEntity_Roo_Entity {
     @PersistenceContext
     transient EntityManager BaseEntity.entityManager;
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long BaseEntity.id;
-    
     @Version
     @Column(name = "version")
     private Integer BaseEntity.version;
-    
-    public Long BaseEntity.getId() {
-        return this.id;
-    }
-    
-    public void BaseEntity.setId(Long id) {
-        this.id = id;
-    }
     
     public Integer BaseEntity.getVersion() {
         return this.version;

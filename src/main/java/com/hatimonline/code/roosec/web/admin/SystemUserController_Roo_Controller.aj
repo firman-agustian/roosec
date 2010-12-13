@@ -7,14 +7,18 @@ import com.hatimonline.code.roosec.domain.SystemUser;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
+import java.util.Collection;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,6 +35,7 @@ privileged aspect SystemUserController_Roo_Controller {
     public String SystemUserController.create(@Valid SystemUser systemUser, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
             model.addAttribute("systemUser", systemUser);
+            addDateTimeFormatPatterns(model);
             return "admin/systemusers/create";
         }
         systemUser.persist();
@@ -40,11 +45,13 @@ privileged aspect SystemUserController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String SystemUserController.createForm(Model model) {
         model.addAttribute("systemUser", new SystemUser());
+        addDateTimeFormatPatterns(model);
         return "admin/systemusers/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String SystemUserController.show(@PathVariable("id") Long id, Model model) {
+        addDateTimeFormatPatterns(model);
         model.addAttribute("systemuser", SystemUser.findSystemUser(id));
         model.addAttribute("itemId", id);
         return "admin/systemusers/show";
@@ -60,6 +67,7 @@ privileged aspect SystemUserController_Roo_Controller {
         } else {
             model.addAttribute("systemusers", SystemUser.findAllSystemUsers());
         }
+        addDateTimeFormatPatterns(model);
         return "admin/systemusers/list";
     }
     
@@ -67,6 +75,7 @@ privileged aspect SystemUserController_Roo_Controller {
     public String SystemUserController.update(@Valid SystemUser systemUser, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
             model.addAttribute("systemUser", systemUser);
+            addDateTimeFormatPatterns(model);
             return "admin/systemusers/update";
         }
         systemUser.merge();
@@ -76,6 +85,7 @@ privileged aspect SystemUserController_Roo_Controller {
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String SystemUserController.updateForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("systemUser", SystemUser.findSystemUser(id));
+        addDateTimeFormatPatterns(model);
         return "admin/systemusers/update";
     }
     
@@ -87,10 +97,15 @@ privileged aspect SystemUserController_Roo_Controller {
         return "redirect:/admin/systemusers?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("systemusers")
+    public Collection<SystemUser> SystemUserController.populateSystemUsers() {
+        return SystemUser.findAllSystemUsers();
+    }
+    
     Converter<SystemUser, String> SystemUserController.getSystemUserConverter() {
         return new Converter<SystemUser, String>() {
             public String convert(SystemUser systemUser) {
-                return new StringBuilder().append(systemUser.getUsername()).toString();
+                return new StringBuilder().append(systemUser.getTimeCreated()).append(" ").append(systemUser.getTimeLastModified()).append(" ").append(systemUser.getUsername()).toString();
             }
         };
     }
@@ -98,6 +113,11 @@ privileged aspect SystemUserController_Roo_Controller {
     @PostConstruct
     void SystemUserController.registerConverters() {
         conversionService.addConverter(getSystemUserConverter());
+    }
+    
+    void SystemUserController.addDateTimeFormatPatterns(Model model) {
+        model.addAttribute("systemUser_timecreated_date_format", DateTimeFormat.patternForStyle("SS", LocaleContextHolder.getLocale()));
+        model.addAttribute("systemUser_timelastmodified_date_format", DateTimeFormat.patternForStyle("SS", LocaleContextHolder.getLocale()));
     }
     
     private String SystemUserController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {

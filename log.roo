@@ -7,3 +7,7 @@ entity --class ~.domain.BaseEntity --mappedSuperclass --inheritanceType TABLE_PE
 entity --class ~.domain.SystemUser --extends ~.domain.BaseEntity --testAutomatically
 field string --fieldName username --unique 1 --notNull --sizeMin 5 --sizeMax 30
 controller scaffold --class ~.web.admin.SystemUserController --entity ~.domain.SystemUser --path admin/systemusers
+field reference --fieldName userWhoCreated --type ~.domain.SystemUser --cardinality MANY_TO_ONE --class ~.domain.BaseEntity
+field date --fieldName timeCreated --type java.util.Date --persistenceType JPA_TIMESTAMP --class ~.domain.BaseEntity --past --timeFormat SHORT 
+field reference --fieldName userWhoLastModified --type ~.domain.SystemUser --cardinality MANY_TO_ONE --class ~.domain.BaseEntity
+field date --fieldName timeLastModified --type java.util.Date --persistenceType JPA_TIMESTAMP --class ~.domain.BaseEntity --past --timeFormat SHORT 

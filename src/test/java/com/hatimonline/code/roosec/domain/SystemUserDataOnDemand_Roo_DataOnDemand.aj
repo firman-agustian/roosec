@@ -18,6 +18,10 @@ privileged aspect SystemUserDataOnDemand_Roo_DataOnDemand {
     
     public SystemUser SystemUserDataOnDemand.getNewTransientSystemUser(int index) {
         com.hatimonline.code.roosec.domain.SystemUser obj = new com.hatimonline.code.roosec.domain.SystemUser();
+        obj.setTimeCreated(new java.util.Date(new java.util.Date().getTime() - 10000000L));
+        obj.setTimeLastModified(new java.util.Date(new java.util.Date().getTime() - 10000000L));
+        obj.setUserWhoCreated(null);
+        obj.setUserWhoLastModified(null);
         java.lang.String username = "username_" + index;
         if (username.length() > 30) {
             username  = username.substring(0, 30);
