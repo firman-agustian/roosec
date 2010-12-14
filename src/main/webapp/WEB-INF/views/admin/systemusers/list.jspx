@@ -8,7 +8,7 @@
         <table:column id="c_com_hatimonline_code_roosec_domain_SystemUser_timeCreated" property="timeCreated" z="HIfJOfT7FKjDCzZWIVtF4fmc6h0="/>
         <table:column id="c_com_hatimonline_code_roosec_domain_SystemUser_userWhoLastModified" property="userWhoLastModified" z="J0oTwj94zX4yNneS0LhzyXC48Ag="/>
         <table:column id="c_com_hatimonline_code_roosec_domain_SystemUser_timeLastModified" property="timeLastModified" z="j+XJqRr95bzdk4NGMixr+C9W6y4="/>
-        <table:column render="false" id="c_com_hatimonline_code_roosec_domain_SystemUser_password" property="password" z="iUbRgH0E0smeCbiuZ6hQ8uq5fas="/>
+        <table:column id="c_com_hatimonline_code_roosec_domain_SystemUser_password" property="password" render="false" z="user-managed"/>
         </table:table>
     </page:list>
 </div>

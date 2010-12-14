@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_hatimonline_code_roosec_domain_SystemUserGroup" modelAttribute="systemUserGroup" path="/admin/systemusergroups" z="f8xUTZgegmNCMm1x2Fm5AfLbX+g=">
+        <field:select field="userWhoCreated" id="c_com_hatimonline_code_roosec_domain_SystemUserGroup_userWhoCreated" itemValue="id" items="${systemusers}" path="/systemusers" z="11LwNkm/UwJKgf5qbmZynhnIA7g="/>
+        <field:datetime dateTimePattern="${systemUserGroup_timecreated_date_format}" field="timeCreated" id="c_com_hatimonline_code_roosec_domain_SystemUserGroup_timeCreated" past="true" z="8VsL2jb+TU+6qa22W9ck+WFVv7E="/>
+        <field:select field="userWhoLastModified" id="c_com_hatimonline_code_roosec_domain_SystemUserGroup_userWhoLastModified" itemValue="id" items="${systemusers}" path="/systemusers" z="H+qvxa26FjMbhIHLncdfMvgBa3o="/>
+        <field:datetime dateTimePattern="${systemUserGroup_timelastmodified_date_format}" field="timeLastModified" id="c_com_hatimonline_code_roosec_domain_SystemUserGroup_timeLastModified" past="true" z="icgjZTpvfX97LgNhEFWjAP7qfoE="/>
+    </form:update>
+</div>

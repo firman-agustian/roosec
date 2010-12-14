@@ -8,5 +8,9 @@
         <menu:item id="i_systemuser_list" messageCode="global_menu_list" url="/admin/systemusers?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="9Mt+Gm1oiq4deE5I7tCCE4MXwKs="/>
         <menu:item id="fi_systemuser_username" messageCode="global_menu_find" url="/admin/systemusers?find=ByUsername&amp;form" z="zqFdBmNVg4L7pwOwklpQ1ByL1xo="/>
         </menu:category>
+    <menu:category id="c_systemusergroup" z="J+Sa4mZMPR33PSuX2ijS6u0E+QE=">
+            <menu:item id="i_systemusergroup_new" messageCode="global_menu_new" url="/admin/systemusergroups?form" z="UvAL/tMX0kUp15VADg2YUvndvVE="/>
+        <menu:item id="i_systemusergroup_list" messageCode="global_menu_list" url="/admin/systemusergroups?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="KUJDM4CziLbj/gzKEIEhunMBa/c="/>
+        </menu:category>
     </menu:menu>
 </div>

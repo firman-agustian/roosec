@@ -16,36 +16,28 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @RooJavaBean
-@RooToString(excludeFields={"userWhoCreated","timeCreated" ,"userWhoLastModified","timeLastModified", })
+@RooToString(excludeFields = { "userWhoCreated", "timeCreated",
+		"userWhoLastModified", "timeLastModified", })
 @RooEntity(mappedSuperclass = true, inheritanceType = "TABLE_PER_CLASS")
-public class BaseEntity {
+public abstract class BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    @Column(name = "id")
-    private Long id;
+	
+	@ManyToOne
+	private SystemUser userWhoCreated;
 
-    @ManyToOne
-    private SystemUser userWhoCreated;
+	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(style = "SS")
+	private Date timeCreated;
 
-    @Past
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "SS")
-    private Date timeCreated;
+	@ManyToOne
+	private SystemUser userWhoLastModified;
 
-    @ManyToOne
-    private SystemUser userWhoLastModified;
 
-    @Past
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "SS")
-    private Date timeLastModified;
 
-    public Long getId() {
-        return this.id;
-    }
+	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(style = "SS")
+	private Date timeLastModified;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

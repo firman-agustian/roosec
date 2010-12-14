@@ -7,6 +7,6 @@
     <field:datetime dateTimePattern="${systemUser_timecreated_date_format}" field="timeCreated" id="c_com_hatimonline_code_roosec_domain_SystemUser_timeCreated" past="true" render="false" z="user-managed"/>
     <field:select field="userWhoLastModified" id="c_com_hatimonline_code_roosec_domain_SystemUser_userWhoLastModified" itemValue="id" items="${systemusers}" path="/systemusers" render="false" subfield="username" z="user-managed"/>
     <field:datetime dateTimePattern="${systemUser_timelastmodified_date_format}" field="timeLastModified" id="c_com_hatimonline_code_roosec_domain_SystemUser_timeLastModified" past="true" render="false" z="user-managed"/>
-    <field:input field="password" type="password" id="c_com_hatimonline_code_roosec_domain_SystemUser_password" z="G/eo2KFzUVWXxfa19wKhYXtCDxA="/>
+    <field:input field="password" id="c_com_hatimonline_code_roosec_domain_SystemUser_password" type="password" z="user-managed"/>
     </form:update>
 </div>
