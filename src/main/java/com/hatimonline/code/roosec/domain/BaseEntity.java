@@ -1,19 +1,19 @@
 package com.hatimonline.code.roosec.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Past;
+
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
-import com.hatimonline.code.roosec.domain.SystemUser;
-import javax.persistence.ManyToOne;
-import java.util.Date;
-import javax.validation.constraints.Past;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @RooJavaBean
 @RooToString(excludeFields = { "userWhoCreated", "timeCreated",
@@ -23,11 +23,13 @@ public abstract class BaseEntity {
 
 	
 	@ManyToOne
+	@JoinColumn(insertable=true,updatable=false)
 	private SystemUser userWhoCreated;
 
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(style = "SS")
+	@Column(updatable=false,insertable=true)
 	private Date timeCreated;
 
 	@ManyToOne

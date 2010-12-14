@@ -14,7 +14,8 @@ privileged aspect SystemUserGroup_Roo_ToString {
         sb.append("UserWhoCreated: ").append(getUserWhoCreated()).append(", ");
         sb.append("TimeCreated: ").append(getTimeCreated()).append(", ");
         sb.append("UserWhoLastModified: ").append(getUserWhoLastModified()).append(", ");
-        sb.append("TimeLastModified: ").append(getTimeLastModified());
+        sb.append("TimeLastModified: ").append(getTimeLastModified()).append(", ");
+        sb.append("GroupName: ").append(getGroupName());
         return sb.toString();
     }
     

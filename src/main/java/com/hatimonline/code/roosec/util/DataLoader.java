@@ -18,14 +18,14 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent>{
         @Transactional
         public void onApplicationEvent(ContextRefreshedEvent event) {
         	if (event.getApplicationContext().getParent() == null) {
-        	    SystemUser a = new SystemUser();
+        	   /* SystemUser a = new SystemUser();
                 a.setUsername("admin");
                 a.setPassword("admin");
                 a.setUserWhoCreated(a);
                 a.setUserWhoLastModified(a);
                 a.setTimeCreated(new Date());
                 a.setTimeLastModified(new Date());
-                a.persist();
+                a.persist();*/
         	} else {
         		System.out.println(">>>>>>>>  Child started; ignoring");
         	}

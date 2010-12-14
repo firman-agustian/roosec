@@ -114,7 +114,7 @@ privileged aspect SystemUserGroupController_Roo_Controller {
     Converter<SystemUserGroup, String> SystemUserGroupController.getSystemUserGroupConverter() {
         return new Converter<SystemUserGroup, String>() {
             public String convert(SystemUserGroup systemUserGroup) {
-                return new StringBuilder().append(systemUserGroup.getTimeCreated()).append(" ").append(systemUserGroup.getTimeLastModified()).toString();
+                return new StringBuilder().append(systemUserGroup.getTimeCreated()).append(" ").append(systemUserGroup.getTimeLastModified()).append(" ").append(systemUserGroup.getGroupName()).toString();
             }
         };
     }

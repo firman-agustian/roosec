@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:spring="http://www.springframework.org/tags" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
+    <spring:url value="/admin/systemusers/${systemuser.id}" var="home"/>
     <page:show id="ps_com_hatimonline_code_roosec_domain_SystemUserGroup" object="${systemusergroup}" path="/admin/systemusergroups" z="nOjbuUTG+Hg4JjCyX2ibCog4/G4=">
-        <field:display field="userWhoCreated" id="s_com_hatimonline_code_roosec_domain_SystemUserGroup_userWhoCreated" object="${systemusergroup}" z="B7rhSFDGDDbP/4nmWRCzQ6IiBvw="/>
+   		 <field:display field="groupName" id="s_com_hatimonline_code_roosec_domain_SystemUserGroup_groupName" object="${systemusergroup}" z="GQy6CwO638a62eXguqDGNn97u1E="/>
+        <field:display field="userWhoCreated" id="s_com_hatimonline_code_roosec_domain_SystemUserGroup_userWhoCreated" object="${systemusergroup}" subfield="username" url="${home}" z="user-managed"/>
         <field:display date="true" dateTimePattern="${systemUserGroup_timecreated_date_format}" field="timeCreated" id="s_com_hatimonline_code_roosec_domain_SystemUserGroup_timeCreated" object="${systemusergroup}" z="MPSsjl3fULlSI/XVXpp3IBQGT6Q="/>
-        <field:display field="userWhoLastModified" id="s_com_hatimonline_code_roosec_domain_SystemUserGroup_userWhoLastModified" object="${systemusergroup}" z="wVpXUmMY3C4xt6Q4mDuAQXYZSOQ="/>
+        <field:display field="userWhoLastModified" id="s_com_hatimonline_code_roosec_domain_SystemUserGroup_userWhoLastModified" object="${systemusergroup}" subfield="username" url="${home}" z="user-managed"/>
         <field:display date="true" dateTimePattern="${systemUserGroup_timelastmodified_date_format}" field="timeLastModified" id="s_com_hatimonline_code_roosec_domain_SystemUserGroup_timeLastModified" object="${systemusergroup}" z="lAMapErdEki4K8RO27MEx7tn17w="/>
-    </page:show>
+   	 </page:show>
 </div>

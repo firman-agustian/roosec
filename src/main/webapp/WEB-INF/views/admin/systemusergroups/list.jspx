@@ -3,10 +3,12 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_com_hatimonline_code_roosec_domain_SystemUserGroup" items="${systemusergroups}" z="PHSUhVgViQ5Uu8Tlf5wioU4KAlU=">
         <table:table data="${systemusergroups}" id="l_com_hatimonline_code_roosec_domain_SystemUserGroup" path="/admin/systemusergroups" z="thED0/otDH0VrZJdairT9/8i/Fk=">
+             <table:column id="c_com_hatimonline_code_roosec_domain_SystemUserGroup_groupName" property="groupName" z="L9v76iZOM1AHazOgdVzwwA2qt20="/>
             <table:column id="c_com_hatimonline_code_roosec_domain_SystemUserGroup_userWhoCreated" property="userWhoCreated" z="8b0fckePpj7WAeFLoPWv0acRRw8="/>
             <table:column id="c_com_hatimonline_code_roosec_domain_SystemUserGroup_timeCreated" property="timeCreated" z="sZa76sDREOLwlk1jN5tGQ0c/BKw="/>
             <table:column id="c_com_hatimonline_code_roosec_domain_SystemUserGroup_userWhoLastModified" property="userWhoLastModified" z="7xBoRbS3fSmygHDCirgu0BQ+7Eg="/>
             <table:column id="c_com_hatimonline_code_roosec_domain_SystemUserGroup_timeLastModified" property="timeLastModified" z="gswFFxbGaIyqVX4ruXmVWuRN9Hk="/>
+       
         </table:table>
     </page:list>
 </div>

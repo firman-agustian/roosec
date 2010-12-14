@@ -18,6 +18,11 @@ privileged aspect SystemUserGroupDataOnDemand_Roo_DataOnDemand {
     
     public SystemUserGroup SystemUserGroupDataOnDemand.getNewTransientSystemUserGroup(int index) {
         com.hatimonline.code.roosec.domain.SystemUserGroup obj = new com.hatimonline.code.roosec.domain.SystemUserGroup();
+        java.lang.String groupName = "groupName_" + index;
+        if (groupName.length() > 30) {
+            groupName  = groupName.substring(0, 30);
+        }
+        obj.setGroupName(groupName);
         obj.setTimeCreated(new java.util.Date(new java.util.Date().getTime() - 10000000L));
         obj.setTimeLastModified(new java.util.Date(new java.util.Date().getTime() - 10000000L));
         obj.setUserWhoCreated(null);

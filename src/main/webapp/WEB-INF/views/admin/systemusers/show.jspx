@@ -8,6 +8,6 @@
     <field:display date="true" dateTimePattern="${systemUser_timecreated_date_format}" field="timeCreated" id="s_com_hatimonline_code_roosec_domain_SystemUser_timeCreated" object="${systemuser}" z="baY+TA3yd9hcV60weNKxa7zC6O8="/>
     <field:display field="userWhoLastModified" id="s_com_hatimonline_code_roosec_domain_SystemUser_userWhoLastModified" object="${systemuser}" subfield="username" url="${home}" z="user-managed"/>
     <field:display date="true" dateTimePattern="${systemUser_timelastmodified_date_format}" field="timeLastModified" id="s_com_hatimonline_code_roosec_domain_SystemUser_timeLastModified" object="${systemuser}" z="0fTQ0GhlboKN5zLpyLZe1zmxX2s="/>
-    <field:display field="password" id="s_com_hatimonline_code_roosec_domain_SystemUser_password" object="${systemuser}" z="Zl+9XW50qnHlDyYgXDD7h1gWS3s="/>
+    <field:display field="password" id="s_com_hatimonline_code_roosec_domain_SystemUser_password" object="${systemuser}" render="false" z="user-managed"/>
     </page:show>
 </div>
